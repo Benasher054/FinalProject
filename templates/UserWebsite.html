@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body style="text-align:center" BGCOLOR="Gainsboro"><br /><br /><br />
+<p><font Size="50" color="blue"><ins><i><strong> BEN ASHER AIR LINES </strong></i></ins></font></p>
+<br /><br />
+
+<form action="http://127.0.0.1:5000/Delete" method="post" name="data" >
+    <br /><br /><br />
+    <p><font Size="7"> YOUR DETAILS </font></p>
+    <p>id AI<input type="text" name="id_ai" value="{{i.get('id_AI')}}" readonly ></p>
+    <p>name<input type="text" name="name" value="{{i.get('full_name')}}" readonly  ></p>
+    <p>id number<input type="text" name="realid" value="{{i.get('real_id')}}" readonly ></p>
+    <br /><br /><br />
+            <p><font Size="7"> YOUR TICKETS </font></p>
+            {% for d in lst: %}
+            <select name=select1>
+                {% for key, value in d.items(): %}
+                 <option value="{{ key }}">{{ key }}{{ value }}</option>
+                 {% endfor %}
+            </select >
+            {% endfor %}
+        <p>enter a Ticket id you want to delete <input type="text" name="ticket" required=true ></p>
+        <button type="submit" >DELETE</button>
+</form>
+<br /><br /><br />
+    <p><font Size="7"> our flights </font></p>
+<br /><br /><br />
+    <table border="1" align="center">
+        <tr>
+             <th colspan="3">TICKETS TO BUY</th>
+        </tr>
+        {% for d in flights: %}
+        <th colspan="3">TICKET:</th>
+        {% for key, value in d.items(): %}
+            <tr>
+                <td>{{ key }}</td>
+                <td>{{ value }}</td>
+            </tr>
+        {% endfor %}
+                {% endfor %}
+
+    </table>
+<form action="http://127.0.0.1:5000/buy" method="post" name="buyticket" >
+<p>enter a flight id you want to buy <input type="text" name="flight" required=true ></p>
+<input type="hidden" name="id_ai" value="{{i.get('id_AI')}}"  >
+        <button type="submit" >BUY</button>
+</form>
+</body>
+</html>
+

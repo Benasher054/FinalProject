@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript">
+     <!-- פונקציה הבודקת אם הקלט בטופס לא ריק -->
+function CheckForm()
+{if (document.Login.realid.value == "")
+{alert ("please enter a id");
+return false;}
+if (document.Login.pwd.value == "")
+{alert ("please enter a password");
+return false;
+}}
+ </script>
+</head>
+<body style="text-align:center" BGCOLOR="Gainsboro">
+    <br /><br /><br /><br /><br /><br /><br />
+    <font Size="7" > <strong>LOGIN </strong></font>
+    <br /><br /><br /><br /><br /><br /><br />
+    <form action="http://127.0.0.1:5000/website" method="post" name="Login" onsubmit="return CheckForm()">
+        <p>ID <input type="string" name="realid"/></p>
+        <p>PASSWORD <input type="password" name="pwd"/></p>
+        <button type="submit">Submit</button>
+        </form>
+                <br /><br />
+        <a href="http://127.0.0.1:5000/Register"><button style="width: 100px; height: 50px">
+            dont sign yet?
+            <br /> Register</button></a>
+
+</body>
+</html>
